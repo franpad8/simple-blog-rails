@@ -1,0 +1,9 @@
+<% @posts.each do |post| %>
+  <%= link_to post_path(post.id) do %>
+    <div class="nes-container with-title">
+      <p class="title nes-text is-success"><%= post.title %></p>
+      <p><%= post.body %></p>
+    </div>
+  <% end %>
+  <br>
+<% end %>

@@ -1,0 +1,27 @@
+<% if @post.errors.present? %>
+	<div class="nes-container is-dark">
+		<ul class="nes-list is-disc nes-text is-error">
+		<% @post.errors.full_messages.each do |message| %>
+			<li><%= message %></li>
+		<% end %>
+		</ul>
+	</div>
+	<br><br>
+<% end %>
+
+<%= form_for @post, url: polymorphic_path(@post), validate: true do |f| %>
+
+	<div class='nes-field'>
+		<%= f.label :title %>
+		<%= f.text_field :title, class: 'nes-input' %>
+	</div>
+	<br>
+	<div class='nes-field'>
+		<%= f.label :body %>
+		<%= f.text_area :body, class: 'nes-textarea'%>
+	</div>
+	<br>
+	<%= link_to('Back', @post.new_record? ? home_path : post_path(@post.id), class: 'nes-btn') %>
+	<%= f.submit class: 'nes-btn is-success' %>
+
+<% end %>

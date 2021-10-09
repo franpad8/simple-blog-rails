@@ -1,0 +1,10 @@
+<h2><%= @post.title %></h1>
+<br>
+<div class="nes-container is-rounded">
+  <p><%= @post.body %></p>
+</div>
+<br>
+<%= link_to 'Back', home_path, class: 'nes-btn' %>
+<%= link_to 'Edit', edit_post_path(@post.id), class: 'nes-btn is-primary' %>
+<br><br>
+<%= button_to 'Remove', post_path(@post.id), method: :delete, class: 'nes-btn is-error' %>
